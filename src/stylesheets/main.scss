@@ -2,4 +2,20 @@
 
 @if $cdn {}
 
-.s-interactive.s-interactive {}
+.s-interactive.s-interactive {
+
+// Tools -------------------------------
+
+@import "tools/fluid-type";
+@import "tools/strip-unit";
+@import "tools/svg-encode";
+
+
+// Generic -----------------------------
+
+@import "generic/box-model";
+@import "generic/font-smoothing";
+@import "generic/web-fonts";
+@import "generic/what-input";
+
+}

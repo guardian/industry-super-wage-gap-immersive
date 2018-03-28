@@ -10,10 +10,10 @@ const plumber = require('gulp-plumber')
 const rename = require('gulp-rename')
 const runSequence = require('run-sequence')
 const sass = require('gulp-sass')
+const sassVars = require('gulp-sass-vars')
 const sourcemaps = require('gulp-sourcemaps')
 const surge = require('gulp-surge')
 const uglify = require('gulp-uglify')
-const sassVars = require('gulp-sass-vars')
 
 let cdn = null
 
