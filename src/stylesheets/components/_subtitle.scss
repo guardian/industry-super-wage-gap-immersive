@@ -1,0 +1,4 @@
+.c-subtitle {
+  @include fluid-type(font-size, 20em, 48em, 1.25em, 1.5em);
+  color: $bunting;
+}
