@@ -1,0 +1,20 @@
+.s-entry-content {
+  h3 {
+    color: $bunting;
+    font-size: 1.25em;
+  }
+
+  h3,
+  p {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

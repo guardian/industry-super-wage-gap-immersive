@@ -1,0 +1,11 @@
+.o-grid {
+  @media (min-width: 48em) {
+    display: flex;
+  }
+}
+
+.o-grid__column {
+  @media (min-width: 48em) {
+    flex: 1;
+  }
+}
