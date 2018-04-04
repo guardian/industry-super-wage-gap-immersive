@@ -1,5 +1,5 @@
 .u-vertical-space {
-  @include fluid-type(margin-bottom margin-top, 20em, 48em, 1rem, 2rem);
+  @include fluid-type(margin-bottom margin-top, 20em, 48em, 1rem, 2.5rem);
 
   &:first-child {
     margin-top: 0;

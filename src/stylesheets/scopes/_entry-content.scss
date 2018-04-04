@@ -1,13 +1,40 @@
 .s-entry-content {
-  h3 {
-    color: $bunting;
-    font-size: 1.25em;
+  blockquote {
+    @extend .c-subtitle;
+
+    p {
+      margin: 0;
+      position: relative;
+
+      &::before {
+        content: "“";
+        position: absolute;
+        right: 100%;
+      }
+
+      &::after {
+        content: "”";
+      }
+    }
+
+    footer {
+      @include fluid-type(font-size, 20em, 48em, 1rem, 1.25rem);
+      margin-top: 1em;
+
+      &::before {
+        content: "— ";
+      }
+    }
   }
 
+  h3 {
+    @extend .c-subtitle;
+  }
+
+  blockquote,
   h3,
   p {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    @include fluid-type(margin-bottom margin-top, 20em, 48em, 1rem, 1.25rem);
 
     &:first-child {
       margin-top: 0;
