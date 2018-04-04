@@ -3,15 +3,30 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: -1em 0 0 -1em;
+
+  &::before {
+    content: "";
+    order: 3;
+    width: 100%;
+  }
 }
 
 .c-flip-cards__item {
+  border-radius: 50%;
   clip-path: inset(1em 0 0 1em);
-  flex-basis: 12.25em;
+  filter: drop-shadow(0 0.25em rgba($bunting, 0.05));
+  flex-basis: (45.8em / 3);
   padding: 1em 0 0 1em;
+
+  @for $i from 1 through 7 {
+    &:nth-child(#{$i}) {
+      order: $i;
+    }
+  }
 }
 
 .c-flip-cards__card {
+  border-radius: inherit;
   padding-top: 100%;
   position: relative;
   transform-style: preserve-3d;
@@ -25,12 +40,12 @@
 .c-flip-cards__face {
   align-items: center;
   backface-visibility: hidden;
-  border-radius: 50%;
+  border-radius: inherit;
   display: flex;
   height: 100%;
   justify-content: center;
   left: 0;
-  padding: 15%;
+  padding: 14.64466095%;
   position: absolute;
   text-align: center;
   top: 0;
@@ -41,18 +56,17 @@
   background-color: $apricot;
   color: $white;
   font-family: $cursive;
-  font-size: 1.125em;
+  font-size: 1.375em;
   font-weight: normal;
-  line-height: 1.25;
 }
 
 .c-flip-cards__face--back {
   background-color: $white;
-  background-image: svg-encode('<svg viewBox="0 0 24 24"><path d="M7.77 16.24A6.003 6.003 0 0 0 12.01 18c3.31 0 6-2.69 6-6s-2.69-6-6-6c-1.66 0-3.14.69-4.22 1.78L11.01 11h-7V4l2.35 2.35A7.958 7.958 0 0 1 12.01 4C16.43 4 20 7.58 20 12s-3.57 8-7.99 8c-2.21 0-4.2-.9-5.65-2.35l1.41-1.41z" fill="#{$apricot}"/></svg>');
-  background-position: 50% calc(100% - 1em);
+  background-image: svg-encode('<svg viewBox="0 0 24 24"><path d="M7.77 16.24A5.986 5.986 0 0 0 12.01 18c3.31 0 6-2.69 6-6s-2.69-6-6-6c-1.66 0-3.14.69-4.22 1.78L11.01 11h-7V4l2.35 2.35A7.923 7.923 0 0 1 12.01 4C16.43 4 20 7.58 20 12s-3.57 8-7.99 8c-2.21 0-4.2-.9-5.65-2.35l1.41-1.41z" fill="#{$apricot}"/></svg>');
+  background-position: 50% calc(100% - 0.8125em);
   background-repeat: no-repeat;
-  background-size: 2em;
+  background-size: 1.625em;
   color: $bunting;
-  font-size: 0.625em;
+  font-size: 0.8125em;
   transform: rotatey(180deg);
 }
