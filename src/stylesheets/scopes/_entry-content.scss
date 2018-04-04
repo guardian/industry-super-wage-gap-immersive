@@ -31,6 +31,25 @@
     @extend .c-subtitle;
   }
 
+  ul {
+    @extend .o-grid;
+
+    li {
+      @extend .o-grid__column;
+      display: flex;
+
+      &::before {
+        background-color: currentcolor;
+        border-radius: 50%;
+        content: "";
+        flex: none;
+        height: 0.5em;
+        margin: 0.4375em 0.5em 0 0;
+        width: 0.5em;
+      }
+    }
+  }
+
   blockquote,
   h3,
   p {
