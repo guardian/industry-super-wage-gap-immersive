@@ -43,12 +43,16 @@
 
 // Components --------------------------
 
+@import "components/button";
+@import "components/input";
+@import "components/label";
 // Regions
 @import "components/header";
 @import "components/main";
 
 // Widgets
 @import "components/flip-cards";
+@import "components/form";
 @import "components/section";
 @import "components/subtitle";
 @import "components/title";
@@ -61,6 +65,7 @@
 
 // Utilities ---------------------------
 
+@import "utilities/transition";
 @import "utilities/vertical-space";
 
 }
