@@ -1,0 +1,18 @@
+.c-people {
+  @include fluid-type(top, 20em, 48em, -1em, -2em);
+  position: absolute;
+}
+
+.c-people--woman {
+  @include fluid-type(margin-right, 20em, 48em, -2em, -4em);
+  right: 100%;
+}
+
+.c-people--man {
+  @include fluid-type(margin-left, 20em, 48em, -2em, -4em);
+  left: 100%;
+}
+
+.c-people__image {
+  @include fluid-type(height, 20em, 48em, 15.625em, 31.25em);
+}
