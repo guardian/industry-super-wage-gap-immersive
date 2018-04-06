@@ -1,6 +1,7 @@
 .c-input {
   @extend %u-transition;
   border-radius: 0.25em;
+  border: $bunting solid 2px;
   color: inherit;
   font-family: inherit;
   font-size: inherit;

@@ -1,0 +1,31 @@
+.c-select {
+  position: relative;
+
+  &::before {
+    align-items: center;
+    background-image: svg-encode('<svg viewBox="0 0 24 24"><path d="M16 10H8l4-4 4 4zm-4 8l4-4H8l4 4z" fill="#{$bunting}"/></svg>');
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    border-radius: 0.25em;
+    border: $bunting solid 2px;
+    content: attr(data-value);
+    display: flex;
+    height: 100%;
+    left: 0;
+    padding: 0 0.5em;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  select {
+    appearance: none;
+    border-width: 0;
+    cursor: pointer;
+    display: block;
+    font-size: inherit;
+    height: 2.5em;
+    opacity: 0;
+    width: 100%;
+  }
+}
