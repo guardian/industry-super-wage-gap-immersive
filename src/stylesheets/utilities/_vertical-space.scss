@@ -9,3 +9,7 @@
     margin-bottom: 0;
   }
 }
+
+.u-vertical-space--large {
+  @include fluid-type(margin-bottom margin-top, 20em, 48em, 2rem, 5rem);
+}

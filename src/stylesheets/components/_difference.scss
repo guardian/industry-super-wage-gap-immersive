@@ -1,0 +1,15 @@
+.c-difference {
+  background-color: $white;
+  color: $bunting;
+  font-weight: bold;
+  padding: 1em 2em 0;
+  text-align: center;
+}
+
+.c-difference__value {
+  font-size: 2em;
+}
+
+.c-difference__button {
+  margin: 0.5em 0 -1em;
+}
