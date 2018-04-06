@@ -1,0 +1,4 @@
+.c-calculator {
+  @include fluid-type(padding, 20em, 48em, 2em, 4em);
+  background-color: $white;
+}
