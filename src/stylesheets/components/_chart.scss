@@ -11,22 +11,19 @@
 .c-chart__wrap {
   @include fluid-type(padding-left padding-right, 20em, 48em, 1em, 4em);
   flex: auto;
+  overflow: hidden;
+}
+
+@keyframes chart-bar {
+  0% {
+    transform: translatey(100%);
+  }
 }
 
 .c-chart__bar {
+  animation: 1s ease-in-out 1 chart-bar;
   background-color: $drover;
   box-shadow: inset 0 1em rgba($white, 0.5);
-  position: relative;
-
-  &::before {
-    background-color: rgba($bunting, 0.125);
-    border-radius: 0.5em;
-    content: "";
-    height: 1em;
-    left: 0;
-    position: absolute;
-    top: 100%;
-    transform: translate(-0.5em, -0.5em);
-    width: calc(100% + 1em);
-  }
+  padding-top: 100%;
+  transform: translatey(0);
 }

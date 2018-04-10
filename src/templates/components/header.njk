@@ -31,8 +31,7 @@
 
             <div class="c-select">
               <select id="age">
-                <option>15 to 19 years</option>
-                <option>20 to 24 years</option>
+                <option>under 25 years</option>
                 <option>25 to 29 years</option>
                 <option>30 to 34 years</option>
                 <option>35 to 39 years</option>
@@ -41,11 +40,7 @@
                 <option>50 to 54 years</option>
                 <option>55 to 59 years</option>
                 <option>60 to 64 years</option>
-                <option>65 to 69 years</option>
-                <option>70 to 74 years</option>
-                <option>75 to 79 years</option>
-                <option>80 to 84 years</option>
-                <option>85 years and over</option>
+                <option>65 years and over</option>
               </select>
             </div>
             <!-- /c-select -->
@@ -77,16 +72,16 @@
     <!-- /c-calculator -->
 
 
-    <div class="c-results">
+    <div class="c-results u-hidden">
 
       <div class="c-balance u-vertical-space u-vertical-space--large">
         <p class="c-balance__text-content">
           The average super balance for a female of your age is
-          <strong class="c-balance__value">$0</strong>
+          <strong class="c-balance__value js-female-balance">$0</strong>
         </p>
         <p class="c-balance__text-content">
           The average super balance for a male of the same age is
-          <strong class="c-balance__value">$0</strong>
+          <strong class="c-balance__value js-male-balance">$0</strong>
         </p>
       </div>
       <!-- /c-balance -->
@@ -95,12 +90,12 @@
       <div class="c-chart u-vertical-space u-vertical-space--large">
         <div class="c-chart__column">
           <div class="c-chart__wrap">
-            <div class="c-chart__bar" style="padding-top: 62.5%;"></div>
+            <div class="c-chart__bar js-chart-bar"></div>
           </div>
         </div>
         <div class="c-chart__column">
           <div class="c-chart__wrap">
-            <div class="c-chart__bar" style="padding-top: 100%;"></div>
+            <div class="c-chart__bar"></div>
           </div>
         </div>
       </div>
@@ -111,9 +106,9 @@
 
         <p>
           This equates to a difference of
-          <strong class="c-difference__value">$0</strong>
+          <strong class="c-difference__value js-balance-difference">$0</strong>
           or
-          <strong class="c-difference__value">0%</strong>
+          <strong class="c-difference__value js-percentage-difference">0%</strong>
         </p>
 
 
