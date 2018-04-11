@@ -52,6 +52,7 @@ gulp.task('public', () =>
 
 gulp.task('scripts', () =>
   gulp.src([
+    'node_modules/countup.js/dist/countUp.js',
     'node_modules/what-input/dist/what-input.js',
     'src/scripts/*.js'
   ])

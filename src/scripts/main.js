@@ -36,6 +36,16 @@ function delimiter(value) {
 }
 
 
+function counter(target, value) {
+  var options = {
+    prefix: '$'
+  }
+
+  var counter = new CountUp(target, 0, value, 0, 1, options);
+  counter.start();
+}
+
+
 function calculateBalances() {
   var maleBalanceNode = document.querySelector('.s-interactive .js-male-balance');
   var femaleBalanceNode = document.querySelector('.s-interactive .js-female-balance');
@@ -71,8 +81,8 @@ function calculateBalances() {
   var balanceDifference = maleBalance - femaleBalance;
   var percentageDifference = balanceDifference / ((maleBalance + femaleBalance) / 2) * 100;
 
-  maleBalanceNode.textContent = '$' + delimiter(maleBalance);
-  femaleBalanceNode.textContent = '$' + delimiter(femaleBalance);
+  counter(maleBalanceNode, maleBalance);
+  counter(femaleBalanceNode, femaleBalance);
   balanceDifferenceNode.textContent = '$' + delimiter(balanceDifference);
   percentageDifferenceNode.textContent = percentageDifference.toFixed() + '%';
   chartBarNode.setAttribute('style', 'transform: translatey(' + percentageDifference + '%);');
