@@ -1,0 +1,17 @@
+.c-stats {
+  @extend .o-grid;
+}
+
+.c-stats__item {
+  @extend .o-grid__column;
+  align-items: center;
+  display: flex;
+}
+
+.c-stats__stat {
+  @include fluid-type(font-size, 20em, 48em, 1.5em, 2em);
+  color: $flamingo;
+  flex: none;
+  font-family: $cursive;
+  margin-right: 0.5em;
+}
