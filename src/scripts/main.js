@@ -3,18 +3,18 @@ var interactiveSelect = document.querySelector('.s-interactive select');
 var interactiveInput = document.querySelector('.s-interactive input');
 
 
+function scrollToTop() {
+  window.scrollTo(0, 0);
+}
+
+
 function swapPanels() {
   var calculatorNode = document.querySelector('.s-interactive .c-calculator');
   var resultsNode = document.querySelector('.s-interactive .c-results');
 
   calculatorNode.classList.add('u-hidden');
   resultsNode.classList.remove('u-hidden');
-};
-
-
-function delimiter(value) {
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-};
+}
 
 
 function getAverageBalance(object) {
@@ -28,7 +28,12 @@ function getAverageBalance(object) {
       return balance = object[keys[keys.length - 1]][interactiveSelect.selectedIndex];
     }
   }
-};
+}
+
+
+function delimiter(value) {
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 
 
 function calculateBalances() {
@@ -71,16 +76,17 @@ function calculateBalances() {
   balanceDifferenceNode.textContent = '$' + delimiter(balanceDifference);
   percentageDifferenceNode.textContent = percentageDifference.toFixed() + '%';
   chartBarNode.setAttribute('style', 'transform: translatey(' + percentageDifference + '%);');
-};
+}
 
 
 function form() {
   interactiveForm.onsubmit = function(event) {
     event.preventDefault();
+    scrollToTop();
     swapPanels();
     calculateBalances();
   };
-};
+}
 
 
 function select() {
@@ -98,7 +104,7 @@ function select() {
 
   var change = new Event('change');
   interactiveSelect.dispatchEvent(change);
-};
+}
 
 
 document.addEventListener('DOMContentLoaded', function() {
