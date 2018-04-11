@@ -6,6 +6,17 @@
   align-items: flex-end;
   display: flex;
   flex: 1;
+  position: relative;
+
+  &::before {
+    @include fluid-type(left right, 20em, 48em, 0.5em, 3.5em);
+    background-color: rgba($bunting, 0.075);
+    border-radius: 0.5em;
+    bottom: -0.5em;
+    content: "";
+    height: 1em;
+    position: absolute;
+  }
 }
 
 .c-chart__wrap {
