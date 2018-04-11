@@ -28,4 +28,8 @@
     opacity: 0;
     width: 100%;
   }
+
+  &.is-focused {
+    @extend %u-focus-rings;
+  }
 }

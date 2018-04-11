@@ -1,0 +1,18 @@
+%u-focus-rings {
+  outline-style: dotted;
+  outline-width: 1px;
+
+  // WebKit styles
+  @media (-webkit-min-device-pixel-ratio: 0) {
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
+    outline-width: 5px;
+  }
+
+  @at-root {
+    [data-whatinput="mouse"] &,
+    [data-whatinput="touch"] & {
+      outline-width: 0;
+    }
+  }
+}
