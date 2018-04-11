@@ -23,32 +23,33 @@
   }
 }
 
-
-
-
 .c-flip-card {
   border-radius: 50%;
   perspective: 30em;
 
-  &:focus .c-flip-card__plane,
-  &:hover .c-flip-card__plane {
+  &:focus .c-flip-card__face--front,
+  &:hover .c-flip-card__face--front {
     transform: rotatey(180deg);
+  }
+
+  &:focus .c-flip-card__face--back,
+  &:hover .c-flip-card__face--back {
+    transform: rotatey(360deg);
   }
 }
 
 .c-flip-card__plane {
   border-radius: inherit;
-  box-shadow: 0 0.25em rgba($bunting, 0.05);
   padding-top: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: 0.25s transform ease-out;
 }
 
 .c-flip-card__face {
   align-items: center;
   backface-visibility: hidden;
   border-radius: inherit;
+  box-shadow: 0 5px rgba($bunting, 0.05);
   display: flex;
   height: 100%;
   justify-content: center;
@@ -57,6 +58,7 @@
   position: absolute;
   text-align: center;
   top: 0;
+  transition: 0.25s transform ease-out;
   width: 100%;
 }
 
