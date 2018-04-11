@@ -5,6 +5,14 @@
   background-repeat: repeat-x;
 }
 
+.c-section--joiner {
+  padding-bottom: 2em;
+
+  + .c-section {
+    padding-top: 2em;
+  }
+}
+
 .c-section--drover {
   background-color: $drover;
 }
