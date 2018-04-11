@@ -3,6 +3,24 @@ var interactiveSelect = document.querySelector('.s-interactive select');
 var interactiveInput = document.querySelector('.s-interactive input');
 
 
+function select() {
+  interactiveSelect.onchange = function(event) {
+    this.parentNode.setAttribute('data-value', event.target.value);
+  };
+
+  interactiveSelect.onfocus = function() {
+    this.parentNode.classList.add('is-focused');
+  };
+
+  interactiveSelect.onblur = function() {
+    this.parentNode.classList.remove('is-focused');
+  };
+
+  var change = new Event('change');
+  interactiveSelect.dispatchEvent(change);
+}
+
+
 function scrollToTop() {
   window.scrollTo(0, 0);
 }
@@ -31,11 +49,6 @@ function getAverageBalance(object) {
 }
 
 
-function delimiter(value) {
-  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-}
-
-
 function counter(target, value) {
   var options = {
     prefix: '$'
@@ -43,6 +56,11 @@ function counter(target, value) {
 
   var counter = new CountUp(target, 0, value, 0, 1, options);
   counter.start();
+}
+
+
+function delimiter(value) {
+  return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 
@@ -99,25 +117,20 @@ function form() {
 }
 
 
-function select() {
-  interactiveSelect.onchange = function(event) {
-    this.parentNode.setAttribute('data-value', event.target.value);
-  };
+function toggleResults() {
+  var button = document.querySelector('.js-difference-button');
+  var people = document.querySelectorAll('.js-people');
 
-  interactiveSelect.onfocus = function() {
-    this.parentNode.classList.add('is-focused');
-  };
-
-  interactiveSelect.onblur = function() {
-    this.parentNode.classList.remove('is-focused');
-  };
-
-  var change = new Event('change');
-  interactiveSelect.dispatchEvent(change);
+  button.onclick = function() {
+    for (var i = 0; i < people.length; i++) {
+      people[i].classList.toggle('is-retired');
+    }
+  }
 }
 
 
 document.addEventListener('DOMContentLoaded', function() {
-  form();
   select();
+  form();
+  toggleResults();
 });

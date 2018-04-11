@@ -7,10 +7,14 @@
 
 .c-balance__text-content {
   @include fluid-type(font-size, 20em, 48em, 0.875em, 1.125em);
+  @include fluid-type(padding-left padding-right, 20em, 48em, 1rem, 5rem);
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
 .c-balance__value {
   display: block;
   font-size: 2em;
+  margin-top: auto;
 }

@@ -1,6 +1,15 @@
 .c-people {
   @include fluid-type(top, 20em, 48em, -1em, -2em);
+  perspective: 60em;
   position: absolute;
+
+  &.is-retired .c-people__image {
+    transform: rotatey(180deg);
+  }
+
+  &.is-retired .c-people__image:last-child {
+    transform: rotatey(360deg);
+  }
 }
 
 .c-people--woman {
@@ -15,4 +24,12 @@
 
 .c-people__image {
   @include fluid-type(height, 20em, 48em, 15.625em, 31.25em);
+  backface-visibility: hidden;
+  transition: 0.5s transform ease-out;
+
+  &:last-child {
+    position: absolute;
+    top: 0;
+    transform: rotatey(180deg);
+  }
 }

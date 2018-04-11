@@ -10,7 +10,7 @@
 
   &::before {
     @include fluid-type(left right, 20em, 48em, 0.5em, 3.5em);
-    background-color: rgba($bunting, 0.075);
+    background-color: rgba($bunting, 0.05);
     border-radius: 0.5em;
     bottom: -0.5em;
     content: "";
