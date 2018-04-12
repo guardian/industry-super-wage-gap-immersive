@@ -1,16 +1,12 @@
 .c-section {
-  @include fluid-type(padding-bottom padding-top, 20em, 48em, 2em, 4em);
   background-image: url(#{$cdn}images/background.png);
   background-position: 0 100%;
   background-repeat: repeat-x;
+  padding: 2em 0;
 }
 
-.c-section--joiner {
-  padding-bottom: 2em;
-
-  + .c-section {
-    padding-top: 2em;
-  }
+.c-section--separate {
+  @include fluid-type(padding-bottom, 20em, 48em, 2em, 4em);
 }
 
 .c-section--drover {
