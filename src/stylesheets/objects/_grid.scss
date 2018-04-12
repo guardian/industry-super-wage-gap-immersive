@@ -4,6 +4,7 @@
   @media (min-width: 48em) {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -14,4 +15,13 @@
     flex-basis: 50%;
     max-width: 50%;
   }
+}
+
+.o-grid__column--double {
+  padding-top: 2em;
+}
+
+.o-grid__column--vertical {
+  display: flex;
+  flex-direction: column;
 }
