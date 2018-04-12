@@ -9,7 +9,7 @@
     <!-- /c-people -->
 
 
-    <form class="c-calculator">
+    <form class="c-calculator js-calculator">
 
       <h1 class="c-title c-title--center u-vertical-space">How will the gender pay gap affect your super?</h1>
       <!-- /c-title -->
@@ -31,7 +31,7 @@
 
 
             <div class="c-select">
-              <select id="age">
+              <select class="js-select" id="age">
                 <option>under 25 years</option>
                 <option>25 to 29 years</option>
                 <option>30 to 34 years</option>
@@ -53,7 +53,7 @@
             <!-- /c-label -->
 
 
-            <input class="c-input" id="income" type="number" placeholder="optional">
+            <input class="c-input js-input" id="income" type="number" placeholder="optional">
             <!-- /c-input -->
 
           </div>
@@ -73,7 +73,7 @@
     <!-- /c-calculator -->
 
 
-    <div class="c-results u-hidden">
+    <div class="u-hidden js-results">
 
       <div class="c-balance u-vertical-space u-vertical-space--large">
         <p class="c-balance__text-content">
@@ -107,20 +107,20 @@
 
         <p>
           This equates to a difference of
-          <strong class="c-difference__value js-balance-difference">$0</strong>
+          <strong class="c-difference__value js-dollar-difference">$0</strong>
           or
           <strong class="c-difference__value js-percentage-difference">0%</strong>
         </p>
 
 
-        <button class="c-button c-difference__button js-difference-button">What about retirement?</button>
+        <button class="c-button c-difference__button js-toggle-difference">What about retirement?</button>
         <!-- /c-button -->
 
       </div>
       <!-- /c-difference -->
 
     </div>
-    <!-- /c-results -->
+    <!-- /u-hidden -->
 
 
     <div class="c-people c-people--man js-people">

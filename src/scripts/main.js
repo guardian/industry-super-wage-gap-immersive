@@ -1,23 +1,23 @@
-var interactiveForm = document.querySelector('.s-interactive form');
-var interactiveSelect = document.querySelector('.s-interactive select');
-var interactiveInput = document.querySelector('.s-interactive input');
+var jsSelect = document.querySelector('.s-interactive .js-select');
+var jsCalculator = document.querySelector('.s-interactive .js-calculator');
+var jsInput = document.querySelector('.s-interactive .js-input');
 
 
 function select() {
-  interactiveSelect.onchange = function(event) {
+  jsSelect.onchange = function(event) {
     this.parentNode.setAttribute('data-value', event.target.value);
-  };
+  }
 
-  interactiveSelect.onfocus = function() {
+  jsSelect.onfocus = function() {
     this.parentNode.classList.add('is-focused');
-  };
+  }
 
-  interactiveSelect.onblur = function() {
+  jsSelect.onblur = function() {
     this.parentNode.classList.remove('is-focused');
-  };
+  }
 
   var change = new Event('change');
-  interactiveSelect.dispatchEvent(change);
+  jsSelect.dispatchEvent(change);
 }
 
 
@@ -27,23 +27,22 @@ function scrollToTop() {
 
 
 function swapPanels() {
-  var calculatorNode = document.querySelector('.s-interactive .c-calculator');
-  var resultsNode = document.querySelector('.s-interactive .c-results');
+  var jsResults = document.querySelector('.s-interactive .js-results');
 
-  calculatorNode.classList.add('u-hidden');
-  resultsNode.classList.remove('u-hidden');
+  jsCalculator.classList.add('u-hidden');
+  jsResults.classList.remove('u-hidden');
 }
 
 
 function getAverageBalance(object) {
   var keys = Object.keys(object).map(Number);
-  var value = interactiveInput.value;
+  var value = jsInput.value;
 
   for (var i = 0; i < keys.length; i++) {
     if (value >= keys[i] && value < keys[i + 1]) {
-      return balance = object[keys[i]][interactiveSelect.selectedIndex];
+      return balance = object[keys[i]][jsSelect.selectedIndex];
     } else if (value >= keys[keys.length - 1]) {
-      return balance = object[keys[keys.length - 1]][interactiveSelect.selectedIndex];
+      return balance = object[keys[keys.length - 1]][jsSelect.selectedIndex];
     }
   }
 }
@@ -59,25 +58,25 @@ function counter(target, value) {
 }
 
 
-function delimiter(value) {
+function separator(value) {
   return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 
 function calculateBalances() {
-  var maleBalanceNode = document.querySelector('.s-interactive .js-male-balance');
-  var femaleBalanceNode = document.querySelector('.s-interactive .js-female-balance');
-  var balanceDifferenceNode = document.querySelector('.s-interactive .js-balance-difference');
-  var percentageDifferenceNode = document.querySelector('.s-interactive .js-percentage-difference');
-  var chartBarNode = document.querySelector('.s-interactive .js-chart-bar');
+  var jsMaleBalance = document.querySelector('.s-interactive .js-male-balance');
+  var jsFemaleBalance = document.querySelector('.s-interactive .js-female-balance');
+  var jsDollarDifference = document.querySelector('.s-interactive .js-dollar-difference');
+  var jsPercentageDifference = document.querySelector('.s-interactive .js-percentage-difference');
+  var jsChartBar = document.querySelector('.s-interactive .js-chart-bar');
 
   var maleBalances = [5924, 23712, 43583, 64590, 99959, 145076, 172126, 237022, 270710, 246915];
   var femaleBalances = [5022, 19107, 33748, 48874, 61922, 87543, 99520, 123642, 157049, 171227];
 
-  var maleBalance = maleBalances[interactiveSelect.selectedIndex];
-  var femaleBalance = femaleBalances[interactiveSelect.selectedIndex];
+  var maleBalance = maleBalances[jsSelect.selectedIndex];
+  var femaleBalance = femaleBalances[jsSelect.selectedIndex];
 
-  if (interactiveInput.value) {
+  if (jsInput.value) {
     maleBalances = {
       0: [20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
       10: [200, 201, 202, 203, 204, 205, 206, 207, 208, 209],
@@ -96,34 +95,34 @@ function calculateBalances() {
     femaleBalance = getAverageBalance(femaleBalances);
   }
 
-  var balanceDifference = maleBalance - femaleBalance;
-  var percentageDifference = balanceDifference / ((maleBalance + femaleBalance) / 2) * 100;
+  var dollarDifference = maleBalance - femaleBalance;
+  var percentageDifference = dollarDifference / ((maleBalance + femaleBalance) / 2) * 100;
 
-  counter(maleBalanceNode, maleBalance);
-  counter(femaleBalanceNode, femaleBalance);
-  balanceDifferenceNode.textContent = '$' + delimiter(balanceDifference);
-  percentageDifferenceNode.textContent = percentageDifference.toFixed() + '%';
-  chartBarNode.setAttribute('style', 'transform: translatey(' + percentageDifference + '%);');
+  counter(jsMaleBalance, maleBalance);
+  counter(jsFemaleBalance, femaleBalance);
+  jsDollarDifference.textContent = '$' + separator(dollarDifference);
+  jsPercentageDifference.textContent = percentageDifference.toFixed() + '%';
+  jsChartBar.setAttribute('style', 'transform: translatey(' + percentageDifference + '%);');
 }
 
 
-function form() {
-  interactiveForm.onsubmit = function(event) {
+function calculator() {
+  jsCalculator.onsubmit = function(event) {
     event.preventDefault();
     scrollToTop();
     swapPanels();
     calculateBalances();
-  };
+  }
 }
 
 
 function toggleResults() {
-  var button = document.querySelector('.js-difference-button');
-  var people = document.querySelectorAll('.js-people');
+  var jsToggleDifference = document.querySelector('.s-interactive .js-toggle-difference');
+  var jsPeople = document.querySelectorAll('.s-interactive .js-people');
 
-  button.onclick = function() {
-    for (var i = 0; i < people.length; i++) {
-      people[i].classList.toggle('is-retired');
+  jsToggleDifference.onclick = function() {
+    for (var i = 0; i < jsPeople.length; i++) {
+      jsPeople[i].classList.toggle('is-retired');
     }
   }
 }
@@ -131,6 +130,6 @@ function toggleResults() {
 
 document.addEventListener('DOMContentLoaded', function() {
   select();
-  form();
+  calculator();
   toggleResults();
 });
