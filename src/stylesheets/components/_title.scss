@@ -3,4 +3,19 @@
   color: $bunting;
   font-family: $serif;
   font-weight: bold;
+  line-height: 1.25;
+}
+
+.c-title--image {
+  @include fluid-type(border-bottom-width, 20em, 48em, 0.25rem, 0.3125rem);
+  align-items: center;
+  border-bottom-color: $white;
+  border-bottom-style: solid;
+  display: flex;
+  justify-content: center;
+}
+
+.c-title__image {
+  height: 3em;
+  margin-right: 0.5em;
 }
