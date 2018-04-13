@@ -11,10 +11,8 @@
 }
 
 .c-title--image {
-  @include fluid-type(border-bottom-width, 20em, 48em, 0.25rem, 0.3125rem);
   align-items: center;
-  border-bottom-color: $white;
-  border-bottom-style: solid;
+  border-bottom: $white solid 3px;
   display: flex;
   justify-content: center;
 }
