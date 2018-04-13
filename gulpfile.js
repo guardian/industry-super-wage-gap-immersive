@@ -1,7 +1,10 @@
+const config = require('./config.json')
+
 const autoprefixer = require('gulp-autoprefixer')
 const browserSync = require('browser-sync')
 const concat = require('gulp-concat')
 const del = require('del')
+const file = require('gulp-file')
 const gulp = require('gulp')
 const htmlmin = require('gulp-htmlmin')
 const imagemin = require('gulp-imagemin')
@@ -9,13 +12,45 @@ const nunjucks = require('gulp-nunjucks')
 const plumber = require('gulp-plumber')
 const rename = require('gulp-rename')
 const runSequence = require('run-sequence')
+const s3Upload = require('gulp-s3-upload')
 const sass = require('gulp-sass')
 const sassVars = require('gulp-sass-vars')
 const sourcemaps = require('gulp-sourcemaps')
 const surge = require('gulp-surge')
 const uglify = require('gulp-uglify')
 
-let cdn = null
+let domain = path = project = version = cdn = null
+
+if (process.env.NODE_ENV === 'production') {
+  domain = 'https://interactive.guim.co.uk'
+  path = 'atoms'
+  project = config.path
+  version = `v/${Date.now()}`
+  cdn = `${domain}/${path}/${project}/${version}/`
+}
+
+function s3(cacheControl, keyPrefix) {
+  return s3Upload()({
+    'Bucket': 'gdn-cdn',
+    'ACL': 'public-read',
+    'CacheControl': cacheControl,
+    'keyTransform': fileName => `${keyPrefix}/${fileName}`
+  })
+}
+
+gulp.task('aws', () =>
+  gulp.src([
+    'dest/**/*',
+    '!dest/**/*.map'
+  ])
+    .pipe(s3('max-age=31536000', `${path}/${project}/${version}`))
+    .on('end', () =>
+      gulp.src('config.json')
+        .pipe(file('preview', version))
+        .pipe(file('live', version))
+        .pipe(s3('max-age=30', `${path}/${project}`))
+    )
+)
 
 gulp.task('browser-sync', () =>
   browserSync.init({
@@ -36,6 +71,10 @@ gulp.task('clean', () =>
 
 gulp.task('default', callback =>
   runSequence('build', 'watch', callback)
+)
+
+gulp.task('deploy', callback =>
+  runSequence('build', 'aws', callback)
 )
 
 gulp.task('images', () =>
