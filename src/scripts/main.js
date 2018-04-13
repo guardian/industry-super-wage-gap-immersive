@@ -106,12 +106,23 @@ function calculateBalances() {
 }
 
 
+function analytics() {
+  ga('send', {
+    hitType: 'event',
+    eventCategory: 'Form',
+    eventAction: 'Submit',
+    eventLabel: jsSelect.value + ', ' + (jsInput.value ? jsInput.value : 'not specified')
+  });
+}
+
+
 function calculator() {
   jsCalculator.onsubmit = function(event) {
     event.preventDefault();
     scrollToTop();
     swapPanels();
     calculateBalances();
+    analytics();
   }
 }
 
