@@ -3,9 +3,10 @@
 
   &::before {
     align-items: center;
-    background-image: svg-encode('<svg viewBox="0 0 24 24"><path d="M16 10H8l4-4 4 4zm-4 8l4-4H8l4 4z" fill="#{$bunting}"/></svg>');
+    background-image: svg-encode('<svg width="24" height="24" viewBox="0 0 24 24"><path d="M16 10H8l4-4 4 4zm-4 8l4-4H8l4 4z" fill="#{$bunting}"/></svg>');
     background-position: 100% 50%;
     background-repeat: no-repeat;
+    background-size: contain;
     border-radius: 0.25em;
     border: $bunting solid 2px;
     content: attr(data-value);

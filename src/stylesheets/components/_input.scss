@@ -8,4 +8,13 @@
   height: 3em;
   padding: 0 0.75em;
   width: 100%;
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &::placeholder {
+    color: mix($tundora, $white);
+    opacity: 1;
+  }
 }
