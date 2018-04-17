@@ -39,6 +39,8 @@
 // Elements ----------------------------
 
 @import "elements/document";
+@import "elements/links";
+@import "elements/scripts";
 
 
 // Objects -----------------------------
@@ -68,6 +70,7 @@
 @import "components/chart";
 @import "components/difference";
 @import "components/flip-cards";
+@import "components/footnotes";
 @import "components/people";
 @import "components/section";
 @import "components/stats";
