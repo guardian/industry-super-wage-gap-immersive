@@ -129,9 +129,14 @@ function calculator() {
 
 function toggleResults() {
   var jsToggleDifference = document.querySelector('.s-interactive .js-toggle-difference');
+  var jsUserDifference = document.querySelector('.s-interactive .js-user-difference');
+  var jsRequiredSuper = document.querySelector('.s-interactive .js-required-super');
   var jsPeople = document.querySelectorAll('.s-interactive .js-people');
 
   jsToggleDifference.onclick = function() {
+    jsUserDifference.classList.toggle('u-hidden');
+    jsRequiredSuper.classList.toggle('u-hidden');
+
     for (var i = 0; i < jsPeople.length; i++) {
       jsPeople[i].classList.toggle('is-retired');
     }
