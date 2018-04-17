@@ -7,7 +7,6 @@ const del = require('del')
 const file = require('gulp-file')
 const gulp = require('gulp')
 const htmlmin = require('gulp-htmlmin')
-const imagemin = require('gulp-imagemin')
 const nunjucks = require('gulp-nunjucks')
 const plumber = require('gulp-plumber')
 const rename = require('gulp-rename')
@@ -77,13 +76,6 @@ gulp.task('deploy', callback =>
   runSequence('build', 'aws', callback)
 )
 
-gulp.task('images', () =>
-  gulp.src('src/images/*')
-    .pipe(imagemin())
-    .pipe(gulp.dest('dest/images'))
-    .on('end', browserSync.reload)
-)
-
 gulp.task('public', () =>
   gulp.src('public/**/*')
     .pipe(gulp.dest('dest'))
@@ -104,7 +96,7 @@ gulp.task('scripts', () =>
     .on('end', browserSync.reload)
 )
 
-gulp.task('source', ['images', 'scripts', 'stylesheets', 'templates'])
+gulp.task('source', ['scripts', 'stylesheets', 'templates'])
 
 gulp.task('stage', callback =>
   runSequence('build', 'surge', callback)
@@ -154,7 +146,6 @@ gulp.task('templates', () =>
 )
 
 gulp.task('watch', ['browser-sync'], () => {
-  gulp.watch('src/images/*', ['images'])
   gulp.watch('src/scripts/**/*.js', ['scripts'])
   gulp.watch('src/stylesheets/**/*.scss', ['stylesheets'])
   gulp.watch('src/templates/**/*.njk', ['templates'])
