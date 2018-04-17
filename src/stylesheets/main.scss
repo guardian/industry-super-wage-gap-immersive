@@ -1,13 +1,11 @@
 @if not $cdn {
   body {
-    background-color: #e9eff1;
     margin: 0;
   }
 }
 
 @if $cdn {
   figure.element {
-    background-color: #e9eff1;
     margin: 0;
   }
 }
