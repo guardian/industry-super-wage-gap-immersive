@@ -1,5 +1,5 @@
 .c-footer {
+  @include fluid-type(padding-bottom padding-top, 20em, 48em, 1em, 2em);
   background-color: $white;
   flex: none;
-  padding: 2em 0;
 }
