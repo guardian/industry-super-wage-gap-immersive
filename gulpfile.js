@@ -124,7 +124,7 @@ gulp.task('stylesheets', () =>
 gulp.task('surge', () =>
   surge({
     project: 'dest',
-    domain: 'industry-super-wage-gap-immersive.surge.sh'
+    domain: 'industry-super-wage-gap-interactive.surge.sh'
   })
 )
 

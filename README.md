@@ -1,4 +1,4 @@
-# Industry Super – Wage Gap (Immersive)
+# Industry Super – Wage Gap (Interactive)
 
 ## Development
 
