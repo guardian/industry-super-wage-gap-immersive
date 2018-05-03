@@ -73,7 +73,7 @@ gulp.task('default', callback =>
 )
 
 gulp.task('deploy', callback =>
-  runSequence('build', 'aws', callback)
+  runSequence('build', 'aws', 'url', callback)
 )
 
 gulp.task('public', () =>
@@ -143,6 +143,10 @@ gulp.task('templates', () =>
     }))
     .pipe(gulp.dest('dest'))
     .on('end', browserSync.reload)
+)
+
+gulp.task('url', () =>
+  console.log('\nAtom URL: https://internal.content.guardianapis.com/atom/interactive/interactives/' + project + '\n')
 )
 
 gulp.task('watch', ['browser-sync'], () => {
